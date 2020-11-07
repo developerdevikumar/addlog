@@ -1,0 +1,157 @@
+
+<div class="authentication">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                <form class="card auth_form" #registerForm="ngForm">
+
+                    <div class="header">
+                        <img class="logo" src="assets/images/logo.svg" alt="">
+                        <h5>Register</h5>
+                        <span></span>
+                    </div>
+                    <div class="body">
+                        <div *ngIf="errors.length > 0" class="alert alert-danger">
+                            <ul *ngFor = "let error of errors">
+                                <li>{{ error }}</li>
+                            </ul>
+                            </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Name" [(ngModel)] = "formData.name"
+                            name= "name"
+                            #name = "ngModel"
+                            required>
+                            <div class="input-group-append" >
+                                <span class="input-group-text"><i class="zmdi zmdi-account-circle"></i>
+                                    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                    class="">
+                                    <div *ngIf="name.errors.required">
+                                      name is required
+                                    </div>
+                                  </div>
+                                </span>
+                            </div>
+                            
+                        </div>
+                        <div class="input-group mb-3">
+
+                            <input type="text" class="form-control" placeholder="Username"  [(ngModel)] = "formData.username"
+                            name="username"
+                            #username = "ngModel"
+                            required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="zmdi zmdi-swap-alt"></i>
+                                    <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                                    class="">
+                                    <div *ngIf="username.errors.required">
+                                      Username is required
+                                    </div>
+                                  </div>
+                                </span>
+                            </div>
+                            
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Password"   [(ngModel)] = "formData.password"
+                            #password = "ngModel"
+                            name="password"
+                            required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="zmdi zmdi-portable-wifi"></i>
+                                    <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                    class="">
+                                    <div *ngIf="password.errors.required">
+                                      Password is required
+                                    </div>
+                                  </div>
+                                </span>
+                            </div>
+                            <div class="input-group mb-3">
+                            </div>
+                            <input type="text" class="form-control" placeholder="Confirmpassword"  [(ngModel)] = "formData.passwordConfirmation"
+                            #passwordConfirmation = "ngModel"
+                            name="passwordConfirmation"
+                            required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="zmdi zmdi-portable-wifi"></i>
+                                    <div *ngIf="passwordConfirmation.invalid && (passwordConfirmation.dirty || passwordConfirmation.touched)"
+                                    class="">
+                                    <div *ngIf="passwordConfirmation.errors.required">
+                                      Confirm Password is required
+                                    </div>
+                                  </div>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder=" Enter Email"  [(ngModel)] = "formData.email"
+                            name="email"
+                            #email = "ngModel"
+                            required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="zmdi zmdi-account-circle"></i></span>
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                                class="">
+                                <div *ngIf="email.errors.required">
+                                  Email is required
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder=" Enter phone"  [(ngModel)] = "formData.contactNumber"
+                            name="contactNumber"
+                            #contactNumber = "ngModel"
+                            required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="zmdi zmdi-phone"></i>
+                                    <div *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)"
+                                    class="">
+                                    <div *ngIf="contactNumber.errors.required">
+                                      phonenumber is required
+                                    </div>
+                                  </div>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Enter address"  [(ngModel)] = "formData.address"
+                            name="address"
+                            #address = "ngModel"
+                            required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="zmdi zmdi-view-dashboard"></i>
+                                    <div *ngIf="address.invalid && (address.dirty || address.touched)"
+                                    class="">
+                                    <div *ngIf="address.errors.required">
+                                      address is required
+                                    </div>
+                                  </div>
+                                </span>
+                            </div>
+                        </div>
+                        <button 
+                        (click) = "register()"
+                        type="submit" 
+                        class="btn btn-warning"
+                        [disabled] = "!registerForm.form.valid">Register</button>
+              
+                        <div class="signin_with mt-3">
+                            <a href="/auth/login" class="mega-menu"   routerLinkActive="active" title="Sign Out ">Sign In?</a>
+                        </div>
+                    </div>
+                </form>
+                <div class="copyright text-center">
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>,
+                    <span>Designed by <a href="https://thememakker.com/" target="_blank">ThemeMakker</a></span>
+                </div>
+            </div>
+            <div class="col-lg-8 col-sm-12">
+                <div class="card">
+                    <img src="assets/images/signin.svg" alt="Forgot Password"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
